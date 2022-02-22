@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>HTML Forms</h2>
+{% if messages %}
+<ul class="messages">
+  {% for message in messages %}
+    <div class="alert alert-primary" role="alert">
+      {{ message }}
+    </div>
+  {% endfor %}
+</ul>
+{% endif %}
+
+
+<form action="" method='POST'>
+    {% csrf_token %}
+  <label for="name">First name:</label><br>
+  <input type="text" id="name1" name="name"><br>
+  <label for="email">email:</label><br>
+  <input type="text" id="email1" name="email"><br>
+  <label for="body">body:</label><br>
+  <input type="text" id="body1" name="body"><br><br>
+<hr>
+<label for="name">First name:</label><br>
+<input type="text" id="name2" name="name"><br>
+<label for="email">email:</label><br>
+<input type="text" id="email2" name="email"><br>
+<label for="body">body:</label><br>
+<input type="text" id="body2" name="body"><br><br>
+<hr>
+<label for="name">First name:</label><br>
+<input type="text" id="name3" name="name"><br>
+<label for="email">email:</label><br>
+<input type="text" id="email3" name="email"><br>
+<label for="body">body:</label><br>
+<input type="text" id="body3" name="body"><br><br>
+<hr>
+<label for="name">First name:</label><br>
+<input type="text" id="name4" name="name"><br>
+<label for="email">email:</label><br>
+<input type="text" id="email4" name="email"><br>
+<label for="body">body:</label><br>
+<input type="text" id="body4" name="body"><br><br>
+<hr>
+<label for="name">First name:</label><br>
+<input type="text" id="name5" name="name"><br>
+<label for="email">email:</label><br>
+<input type="text" id="email5" name="email"><br>
+<label for="body">body:</label><br>
+<input type="text" id="body5" name="body"><br><br>
+<hr>
+
+  <input type="submit" value="Submit">
+</form> 
+
+<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384 JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
