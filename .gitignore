@@ -1,0 +1,26 @@
+.idea/*
+db.sqlite3
+.hg/*
+*.pyc
+*.orig
+*venv/*
+*/migrations/0*
+venv/*
+*__pycacgit bhe__/*
+.vscode
+.log
+.DS_Store
+/media/
+/node_modules/
+/static/
+*.log
+local_settings.py
+.pytest_cache
+.coverage
+.env
+/logs/
+env/*
+wb3.egg-info/
+*/node_modules
+.abc/*
+db.sqlite3/*

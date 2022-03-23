@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<link rel = "stylesheet" href = "https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
+
+    <title>HOME PAGE</title>
+</head>
+<body>
+    
+    <p> <a href="{% url 'home' %}">Home</a> </p>
+    <p> <a href="{% url 'register' %}">Register</a> </p>
+    
+    {% if request.user.is_authenticated %}
+    <p> <a href="{% url 'signout' %}">Log out</a> </p>
+    {% else %}
+    <p> <a href="{% url 'signin' %}">Login</a> </p>
+    {% endif %}
+    
+    <p> <a href="{% url 'main_index' %}">Register New comer</a> </p>
+
+    <p> <a href="{% url 'member' %}">Member</a> </p>
+    <h1>Home Page</h1>
+
+    <p style="color:green">ACTIVITY STREAM</p>
+
+
+   
+
+
+<div style="margin:0 30px">
+    <table id = "myTable" class = "table table-bordered" style = "width: 100%;">
+        <thead>
+        <tr>
+        <th> User </th>
+        <th> Verb </th>
+        <th> Ref Id </th>
+
+        <th> response_status </th>
+        <th>Created</th>
+        <th>Created at</th>
+
+        </tr>
+        </thead>
+        {% for activitystream in activitystreams %}
+        <tbody>
+            <tr>
+            <td> <a href=" {{activitystream.ref_id}}"> {{activitystream.user}}</a> </td>
+            <td> {{ activitystream.verb}} </td>
+            <td> {{ activitystream.ref_id }} </td>
+            <td> {{ activitystream.response_status}} </td>
+            <td> {{ activitystream.created|timesince }} </td>
+            <td> {{ activitystream.created}} </td>
+
+
+            
+            </tr>
+            </tbody>
+        {% endfor %}
+       
+        
+        </table>
+
+
+            
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js</script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src = "https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src = "https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+
+
+    <script>
+    $(document).ready(function() {
+    $('#myTable').DataTable();
+    } );
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    
+    <p> <a href="{% url 'home' %}">Home</a> </p>
+    <p> <a href="{% url 'register' %}">Register</a> </p>
+    {% if request.user.is_authenticated %}
+    <p> <a href="{% url 'signout' %}">Log out</a> </p>
+    {% else %}
+    <p> <a href="{% url 'signin' %}">Login</a> </p>
+    {% endif %}
+    <p> <a href="{% url 'main_index' %}">Register New comer</a> </p>
+
+    <p> <a href="{% url 'member' %}">Member</a> </p>
+
+    <h1>MEMBER</h1>
+
+    <form method="post" action="">
+        {% csrf_token %}
+
+        {% for field in form %}
+        <div class="form-group">
+            <p class="label">{{ field.label }}</p>
+            {{field}}
+        </div>
+        {% endfor %}
+     <br/>
+        <div class="form-group">
+         <input type="submit" value="Submit" class="btn">
+        </div>
+ 
+     </form>
+</body>
+</html>

@@ -1,8 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NewMember form</title>
+</head>
 <body>
+  
+  <p> <a href="{% url 'home' %}">Home</a> </p>
+  <p> <a href="{% url 'register' %}">Register</a> </p>
+  {% if request.user.is_authenticated %}
+    <p> <a href="{% url 'signout' %}">Log out</a> </p>
+    {% else %}
+    <p> <a href="{% url 'signin' %}">Login</a> </p>
+    {% endif %}
+    <p> <a href="{% url 'main_index' %}">Register New comer</a> </p>
 
-<h2>HTML Forms</h2>
+  <p> <a href="{% url 'member' %}">Member</a> </p>
 {% if messages %}
 <ul class="messages">
   {% for message in messages %}
@@ -14,48 +29,1714 @@
 {% endif %}
 
 
+<h1>NEW COMER FORM</h1>
+
 <form action="" method='POST'>
     {% csrf_token %}
+    <div class="multi-form">
+      <label for="name">First name:</label><br>
+      <input type="text" id="name1" name="name"><br>
+
+      <label for="email">email:</label><br>
+      <input type="text" id="email1" name="email"><br>
+
+
+      <label for="email">phone:</label><br>
+      <input type="text" id="phone" name="phone"><br>
+
+
+      <label for="email">home_address:</label><br>
+      <input type="text" id="home_address" name="home_address"><br>
+
+
+      <label for="email">Contact Via:</label><br>
+      <select name="contact_via" id="contact_via">
+        <option value="CALL">CALL</option>
+        <option value="VISIT">VISIT</option>
+        <option value="CALL_VISIT">CALL_VISIT</option>
+      </select><br>
+
+
+      <label for="email">invited_by:</label><br>
+      <input type="text" id="invited_by" name="invited_by"><br>
+
+
+      <label for="email">intrest:</label><br>
+      <select name="intrest" id="intrest">
+        <option value="INTRESTED_IN_BECOMING_A_MEMBER">INTRESTED IN BECOMING A MEMBER</option>
+        <option value="VISING_INTRESTED_IN_BECOMING_A_MEMBER">VISING INTRESTED IN BECOMING A MEMBER</option>
+        <option value="SEASONAL_VISITOR_BECOMING_ACTIVE">SEASONAL VISITOR BECOMING ACTIVE</option>
+        <option value="JUST_VISITING">JUST VISITING</option>
+
+      </select><br>
+
+
+      <label for="prayer_request">prayer_request:</label><br>
+      <input type="text" id="prayer_request" name="prayer_request"><br>
+
+
+      <label for="observations">observations:</label><br>
+      <input type="text" id="email1" name="observations"><br>
+
+
+      <label for="current_job">current_job:</label><br>
+      <input type="text" id="current_job" name="current_job"><br>
+      
+
+    </div>
+    <br><br>
+<hr>
+
+<div class="multi-form">
   <label for="name">First name:</label><br>
   <input type="text" id="name1" name="name"><br>
+
   <label for="email">email:</label><br>
   <input type="text" id="email1" name="email"><br>
-  <label for="body">body:</label><br>
-  <input type="text" id="body1" name="body"><br><br>
+
+
+  <label for="email">phone:</label><br>
+  <input type="text" id="phone" name="phone"><br>
+
+
+  <label for="email">home_address:</label><br>
+  <input type="text" id="home_address" name="home_address"><br>
+
+
+  <label for="email">Contact Via:</label><br>
+  <select name="contact_via" id="contact_via">
+    <option value="CALL">CALL</option>
+    <option value="VISIT">VISIT</option>
+    <option value="CALL_VISIT">CALL_VISIT</option>
+  </select><br>
+
+
+  <label for="email">invited_by:</label><br>
+  <input type="text" id="invited_by" name="invited_by"><br>
+
+
+  <label for="email">intrest:</label><br>
+  <select name="intrest" id="intrest">
+    <option value="INTRESTED_IN_BECOMING_A_MEMBER">INTRESTED IN BECOMING A MEMBER</option>
+    <option value="VISING_INTRESTED_IN_BECOMING_A_MEMBER">VISING INTRESTED IN BECOMING A MEMBER</option>
+    <option value="SEASONAL_VISITOR_BECOMING_ACTIVE">SEASONAL VISITOR BECOMING ACTIVE</option>
+    <option value="JUST_VISITING">JUST VISITING</option>
+
+  </select><br>
+
+
+  <label for="prayer_request">prayer_request:</label><br>
+  <input type="text" id="prayer_request" name="prayer_request"><br>
+
+
+  <label for="observations">observations:</label><br>
+  <input type="text" id="email1" name="observations"><br>
+
+
+  <label for="current_job">current_job:</label><br>
+  <input type="text" id="current_job" name="current_job"><br>
+  
+
+</div>
+<br><br>
+<hr>   <div class="multi-form">
+  <label for="name">First name:</label><br>
+  <input type="text" id="name1" name="name"><br>
+
+  <label for="email">email:</label><br>
+  <input type="text" id="email1" name="email"><br>
+
+
+  <label for="email">phone:</label><br>
+  <input type="text" id="phone" name="phone"><br>
+
+
+  <label for="email">home_address:</label><br>
+  <input type="text" id="home_address" name="home_address"><br>
+
+
+  <label for="email">Contact Via:</label><br>
+  <select name="contact_via" id="contact_via">
+    <option value="CALL">CALL</option>
+    <option value="VISIT">VISIT</option>
+    <option value="CALL_VISIT">CALL_VISIT</option>
+  </select><br>
+
+
+  <label for="email">invited_by:</label><br>
+  <input type="text" id="invited_by" name="invited_by"><br>
+
+
+  <label for="email">intrest:</label><br>
+  <select name="intrest" id="intrest">
+    <option value="INTRESTED_IN_BECOMING_A_MEMBER">INTRESTED IN BECOMING A MEMBER</option>
+    <option value="VISING_INTRESTED_IN_BECOMING_A_MEMBER">VISING INTRESTED IN BECOMING A MEMBER</option>
+    <option value="SEASONAL_VISITOR_BECOMING_ACTIVE">SEASONAL VISITOR BECOMING ACTIVE</option>
+    <option value="JUST_VISITING">JUST VISITING</option>
+
+  </select><br>
+
+
+  <label for="prayer_request">prayer_request:</label><br>
+  <input type="text" id="prayer_request" name="prayer_request"><br>
+
+
+  <label for="observations">observations:</label><br>
+  <input type="text" id="email1" name="observations"><br>
+
+
+  <label for="current_job">current_job:</label><br>
+  <input type="text" id="current_job" name="current_job"><br>
+  
+
+</div>
+<br><br>
+<hr>   <div class="multi-form">
+  <label for="name">First name:</label><br>
+  <input type="text" id="name1" name="name"><br>
+
+  <label for="email">email:</label><br>
+  <input type="text" id="email1" name="email"><br>
+
+
+  <label for="email">phone:</label><br>
+  <input type="text" id="phone" name="phone"><br>
+
+
+  <label for="email">home_address:</label><br>
+  <input type="text" id="home_address" name="home_address"><br>
+
+
+  <label for="email">Contact Via:</label><br>
+  <select name="contact_via" id="contact_via">
+    <option value="CALL">CALL</option>
+    <option value="VISIT">VISIT</option>
+    <option value="CALL_VISIT">CALL_VISIT</option>
+  </select><br>
+
+
+  <label for="email">invited_by:</label><br>
+  <input type="text" id="invited_by" name="invited_by"><br>
+
+
+  <label for="email">intrest:</label><br>
+  <select name="intrest" id="intrest">
+    <option value="INTRESTED_IN_BECOMING_A_MEMBER">INTRESTED IN BECOMING A MEMBER</option>
+    <option value="VISING_INTRESTED_IN_BECOMING_A_MEMBER">VISING INTRESTED IN BECOMING A MEMBER</option>
+    <option value="SEASONAL_VISITOR_BECOMING_ACTIVE">SEASONAL VISITOR BECOMING ACTIVE</option>
+    <option value="JUST_VISITING">JUST VISITING</option>
+
+  </select><br>
+
+
+  <label for="prayer_request">prayer_request:</label><br>
+  <input type="text" id="prayer_request" name="prayer_request"><br>
+
+
+  <label for="observations">observations:</label><br>
+  <input type="text" id="email1" name="observations"><br>
+
+
+  <label for="current_job">current_job:</label><br>
+  <input type="text" id="current_job" name="current_job"><br>
+  
+
+</div>
+<br><br>
+<hr>   <div class="multi-form">
+  <label for="name">First name:</label><br>
+  <input type="text" id="name1" name="name"><br>
+
+  <label for="email">email:</label><br>
+  <input type="text" id="email1" name="email"><br>
+
+
+  <label for="email">phone:</label><br>
+  <input type="text" id="phone" name="phone"><br>
+
+
+  <label for="email">home_address:</label><br>
+  <input type="text" id="home_address" name="home_address"><br>
+
+
+  <label for="email">Contact Via:</label><br>
+  <select name="contact_via" id="contact_via">
+    <option value="CALL">CALL</option>
+    <option value="VISIT">VISIT</option>
+    <option value="CALL_VISIT">CALL_VISIT</option>
+  </select><br>
+
+
+  <label for="email">invited_by:</label><br>
+  <input type="text" id="invited_by" name="invited_by"><br>
+
+
+  <label for="email">intrest:</label><br>
+  <select name="intrest" id="intrest">
+    <option value="INTRESTED_IN_BECOMING_A_MEMBER">INTRESTED IN BECOMING A MEMBER</option>
+    <option value="VISING_INTRESTED_IN_BECOMING_A_MEMBER">VISING INTRESTED IN BECOMING A MEMBER</option>
+    <option value="SEASONAL_VISITOR_BECOMING_ACTIVE">SEASONAL VISITOR BECOMING ACTIVE</option>
+    <option value="JUST_VISITING">JUST VISITING</option>
+
+  </select><br>
+
+
+  <label for="prayer_request">prayer_request:</label><br>
+  <input type="text" id="prayer_request" name="prayer_request"><br>
+
+
+  <label for="observations">observations:</label><br>
+  <input type="text" id="email1" name="observations"><br>
+
+
+  <label for="current_job">current_job:</label><br>
+  <input type="text" id="current_job" name="current_job"><br>
+  
+
+</div>
+<br><br>
+<hr>   <div class="multi-form">
+  <label for="name">First name:</label><br>
+  <input type="text" id="name1" name="name"><br>
+
+  <label for="email">email:</label><br>
+  <input type="text" id="email1" name="email"><br>
+
+
+  <label for="email">phone:</label><br>
+  <input type="text" id="phone" name="phone"><br>
+
+
+  <label for="email">home_address:</label><br>
+  <input type="text" id="home_address" name="home_address"><br>
+
+
+  <label for="email">Contact Via:</label><br>
+  <select name="contact_via" id="contact_via">
+    <option value="CALL">CALL</option>
+    <option value="VISIT">VISIT</option>
+    <option value="CALL_VISIT">CALL_VISIT</option>
+  </select><br>
+
+
+  <label for="email">invited_by:</label><br>
+  <input type="text" id="invited_by" name="invited_by"><br>
+
+
+  <label for="email">intrest:</label><br>
+  <select name="intrest" id="intrest">
+    <option value="INTRESTED_IN_BECOMING_A_MEMBER">INTRESTED IN BECOMING A MEMBER</option>
+    <option value="VISING_INTRESTED_IN_BECOMING_A_MEMBER">VISING INTRESTED IN BECOMING A MEMBER</option>
+    <option value="SEASONAL_VISITOR_BECOMING_ACTIVE">SEASONAL VISITOR BECOMING ACTIVE</option>
+    <option value="JUST_VISITING">JUST VISITING</option>
+
+  </select><br>
+
+
+  <label for="prayer_request">prayer_request:</label><br>
+  <input type="text" id="prayer_request" name="prayer_request"><br>
+
+
+  <label for="observations">observations:</label><br>
+  <input type="text" id="email1" name="observations"><br>
+
+
+  <label for="current_job">current_job:</label><br>
+  <input type="text" id="current_job" name="current_job"><br>
+  
+
+</div>
+<br><br>
+<hr>   <div class="multi-form">
+  <label for="name">First name:</label><br>
+  <input type="text" id="name1" name="name"><br>
+
+  <label for="email">email:</label><br>
+  <input type="text" id="email1" name="email"><br>
+
+
+  <label for="email">phone:</label><br>
+  <input type="text" id="phone" name="phone"><br>
+
+
+  <label for="email">home_address:</label><br>
+  <input type="text" id="home_address" name="home_address"><br>
+
+
+  <label for="email">Contact Via:</label><br>
+  <select name="contact_via" id="contact_via">
+    <option value="CALL">CALL</option>
+    <option value="VISIT">VISIT</option>
+    <option value="CALL_VISIT">CALL_VISIT</option>
+  </select><br>
+
+
+  <label for="email">invited_by:</label><br>
+  <input type="text" id="invited_by" name="invited_by"><br>
+
+
+  <label for="email">intrest:</label><br>
+  <select name="intrest" id="intrest">
+    <option value="INTRESTED_IN_BECOMING_A_MEMBER">INTRESTED IN BECOMING A MEMBER</option>
+    <option value="VISING_INTRESTED_IN_BECOMING_A_MEMBER">VISING INTRESTED IN BECOMING A MEMBER</option>
+    <option value="SEASONAL_VISITOR_BECOMING_ACTIVE">SEASONAL VISITOR BECOMING ACTIVE</option>
+    <option value="JUST_VISITING">JUST VISITING</option>
+
+  </select><br>
+
+
+  <label for="prayer_request">prayer_request:</label><br>
+  <input type="text" id="prayer_request" name="prayer_request"><br>
+
+
+  <label for="observations">observations:</label><br>
+  <input type="text" id="email1" name="observations"><br>
+
+
+  <label for="current_job">current_job:</label><br>
+  <input type="text" id="current_job" name="current_job"><br>
+  
+
+</div>
+<br><br>
+<hr>   <div class="multi-form">
+  <label for="name">First name:</label><br>
+  <input type="text" id="name1" name="name"><br>
+
+  <label for="email">email:</label><br>
+  <input type="text" id="email1" name="email"><br>
+
+
+  <label for="email">phone:</label><br>
+  <input type="text" id="phone" name="phone"><br>
+
+
+  <label for="email">home_address:</label><br>
+  <input type="text" id="home_address" name="home_address"><br>
+
+
+  <label for="email">Contact Via:</label><br>
+  <select name="contact_via" id="contact_via">
+    <option value="CALL">CALL</option>
+    <option value="VISIT">VISIT</option>
+    <option value="CALL_VISIT">CALL_VISIT</option>
+  </select><br>
+
+
+  <label for="email">invited_by:</label><br>
+  <input type="text" id="invited_by" name="invited_by"><br>
+
+
+  <label for="email">intrest:</label><br>
+  <select name="intrest" id="intrest">
+    <option value="INTRESTED_IN_BECOMING_A_MEMBER">INTRESTED IN BECOMING A MEMBER</option>
+    <option value="VISING_INTRESTED_IN_BECOMING_A_MEMBER">VISING INTRESTED IN BECOMING A MEMBER</option>
+    <option value="SEASONAL_VISITOR_BECOMING_ACTIVE">SEASONAL VISITOR BECOMING ACTIVE</option>
+    <option value="JUST_VISITING">JUST VISITING</option>
+
+  </select><br>
+
+
+  <label for="prayer_request">prayer_request:</label><br>
+  <input type="text" id="prayer_request" name="prayer_request"><br>
+
+
+  <label for="observations">observations:</label><br>
+  <input type="text" id="email1" name="observations"><br>
+
+
+  <label for="current_job">current_job:</label><br>
+  <input type="text" id="current_job" name="current_job"><br>
+  
+
+</div>
+<br><br>
+<hr>   <div class="multi-form">
+  <label for="name">First name:</label><br>
+  <input type="text" id="name1" name="name"><br>
+
+  <label for="email">email:</label><br>
+  <input type="text" id="email1" name="email"><br>
+
+
+  <label for="email">phone:</label><br>
+  <input type="text" id="phone" name="phone"><br>
+
+
+  <label for="email">home_address:</label><br>
+  <input type="text" id="home_address" name="home_address"><br>
+
+
+  <label for="email">Contact Via:</label><br>
+  <select name="contact_via" id="contact_via">
+    <option value="CALL">CALL</option>
+    <option value="VISIT">VISIT</option>
+    <option value="CALL_VISIT">CALL_VISIT</option>
+  </select><br>
+
+
+  <label for="email">invited_by:</label><br>
+  <input type="text" id="invited_by" name="invited_by"><br>
+
+
+  <label for="email">intrest:</label><br>
+  <select name="intrest" id="intrest">
+    <option value="INTRESTED_IN_BECOMING_A_MEMBER">INTRESTED IN BECOMING A MEMBER</option>
+    <option value="VISING_INTRESTED_IN_BECOMING_A_MEMBER">VISING INTRESTED IN BECOMING A MEMBER</option>
+    <option value="SEASONAL_VISITOR_BECOMING_ACTIVE">SEASONAL VISITOR BECOMING ACTIVE</option>
+    <option value="JUST_VISITING">JUST VISITING</option>
+
+  </select><br>
+
+
+  <label for="prayer_request">prayer_request:</label><br>
+  <input type="text" id="prayer_request" name="prayer_request"><br>
+
+
+  <label for="observations">observations:</label><br>
+  <input type="text" id="email1" name="observations"><br>
+
+
+  <label for="current_job">current_job:</label><br>
+  <input type="text" id="current_job" name="current_job"><br>
+  
+
+</div>
+<br><br>
+<hr>   <div class="multi-form">
+      <label for="name">First name:</label><br>
+      <input type="text" id="name1" name="name"><br>
+
+      <label for="email">email:</label><br>
+      <input type="text" id="email1" name="email"><br>
+
+
+      <label for="email">phone:</label><br>
+      <input type="text" id="phone" name="phone"><br>
+
+
+      <label for="email">home_address:</label><br>
+      <input type="text" id="home_address" name="home_address"><br>
+
+
+      <label for="email">Contact Via:</label><br>
+      <select name="contact_via" id="contact_via">
+        <option value="CALL">CALL</option>
+        <option value="VISIT">VISIT</option>
+        <option value="CALL_VISIT">CALL_VISIT</option>
+      </select><br>
+
+
+      <label for="email">invited_by:</label><br>
+      <input type="text" id="invited_by" name="invited_by"><br>
+
+
+      <label for="email">intrest:</label><br>
+      <select name="intrest" id="intrest">
+        <option value="INTRESTED_IN_BECOMING_A_MEMBER">INTRESTED IN BECOMING A MEMBER</option>
+        <option value="VISING_INTRESTED_IN_BECOMING_A_MEMBER">VISING INTRESTED IN BECOMING A MEMBER</option>
+        <option value="SEASONAL_VISITOR_BECOMING_ACTIVE">SEASONAL VISITOR BECOMING ACTIVE</option>
+        <option value="JUST_VISITING">JUST VISITING</option>
+
+      </select><br>
+
+
+      <label for="prayer_request">prayer_request:</label><br>
+      <input type="text" id="prayer_request" name="prayer_request"><br>
+
+
+      <label for="observations">observations:</label><br>
+      <input type="text" id="email1" name="observations"><br>
+
+
+      <label for="current_job">current_job:</label><br>
+      <input type="text" id="current_job" name="current_job"><br>
+      
+
+    </div>
+    <br><br>
+<hr>   <div class="multi-form">
+  <label for="name">First name:</label><br>
+  <input type="text" id="name1" name="name"><br>
+
+  <label for="email">email:</label><br>
+  <input type="text" id="email1" name="email"><br>
+
+
+  <label for="email">phone:</label><br>
+  <input type="text" id="phone" name="phone"><br>
+
+
+  <label for="email">home_address:</label><br>
+  <input type="text" id="home_address" name="home_address"><br>
+
+
+  <label for="email">Contact Via:</label><br>
+  <select name="contact_via" id="contact_via">
+    <option value="CALL">CALL</option>
+    <option value="VISIT">VISIT</option>
+    <option value="CALL_VISIT">CALL_VISIT</option>
+  </select><br>
+
+
+  <label for="email">invited_by:</label><br>
+  <input type="text" id="invited_by" name="invited_by"><br>
+
+
+  <label for="email">intrest:</label><br>
+  <select name="intrest" id="intrest">
+    <option value="INTRESTED_IN_BECOMING_A_MEMBER">INTRESTED IN BECOMING A MEMBER</option>
+    <option value="VISING_INTRESTED_IN_BECOMING_A_MEMBER">VISING INTRESTED IN BECOMING A MEMBER</option>
+    <option value="SEASONAL_VISITOR_BECOMING_ACTIVE">SEASONAL VISITOR BECOMING ACTIVE</option>
+    <option value="JUST_VISITING">JUST VISITING</option>
+
+  </select><br>
+
+
+  <label for="prayer_request">prayer_request:</label><br>
+  <input type="text" id="prayer_request" name="prayer_request"><br>
+
+
+  <label for="observations">observations:</label><br>
+  <input type="text" id="email1" name="observations"><br>
+
+
+  <label for="current_job">current_job:</label><br>
+  <input type="text" id="current_job" name="current_job"><br>
+  
+
+</div>
+<br><br>
+<hr>   <div class="multi-form">
+  <label for="name">First name:</label><br>
+  <input type="text" id="name1" name="name"><br>
+
+  <label for="email">email:</label><br>
+  <input type="text" id="email1" name="email"><br>
+
+
+  <label for="email">phone:</label><br>
+  <input type="text" id="phone" name="phone"><br>
+
+
+  <label for="email">home_address:</label><br>
+  <input type="text" id="home_address" name="home_address"><br>
+
+
+  <label for="email">Contact Via:</label><br>
+  <select name="contact_via" id="contact_via">
+    <option value="CALL">CALL</option>
+    <option value="VISIT">VISIT</option>
+    <option value="CALL_VISIT">CALL_VISIT</option>
+  </select><br>
+
+
+  <label for="email">invited_by:</label><br>
+  <input type="text" id="invited_by" name="invited_by"><br>
+
+
+  <label for="email">intrest:</label><br>
+  <select name="intrest" id="intrest">
+    <option value="INTRESTED_IN_BECOMING_A_MEMBER">INTRESTED IN BECOMING A MEMBER</option>
+    <option value="VISING_INTRESTED_IN_BECOMING_A_MEMBER">VISING INTRESTED IN BECOMING A MEMBER</option>
+    <option value="SEASONAL_VISITOR_BECOMING_ACTIVE">SEASONAL VISITOR BECOMING ACTIVE</option>
+    <option value="JUST_VISITING">JUST VISITING</option>
+
+  </select><br>
+
+
+  <label for="prayer_request">prayer_request:</label><br>
+  <input type="text" id="prayer_request" name="prayer_request"><br>
+
+
+  <label for="observations">observations:</label><br>
+  <input type="text" id="email1" name="observations"><br>
+
+
+  <label for="current_job">current_job:</label><br>
+  <input type="text" id="current_job" name="current_job"><br>
+  
+
+</div>
+<br><br>
+<hr>   <div class="multi-form">
+  <label for="name">First name:</label><br>
+  <input type="text" id="name1" name="name"><br>
+
+  <label for="email">email:</label><br>
+  <input type="text" id="email1" name="email"><br>
+
+
+  <label for="email">phone:</label><br>
+  <input type="text" id="phone" name="phone"><br>
+
+
+  <label for="email">home_address:</label><br>
+  <input type="text" id="home_address" name="home_address"><br>
+
+
+  <label for="email">Contact Via:</label><br>
+  <select name="contact_via" id="contact_via">
+    <option value="CALL">CALL</option>
+    <option value="VISIT">VISIT</option>
+    <option value="CALL_VISIT">CALL_VISIT</option>
+  </select><br>
+
+
+  <label for="email">invited_by:</label><br>
+  <input type="text" id="invited_by" name="invited_by"><br>
+
+
+  <label for="email">intrest:</label><br>
+  <select name="intrest" id="intrest">
+    <option value="INTRESTED_IN_BECOMING_A_MEMBER">INTRESTED IN BECOMING A MEMBER</option>
+    <option value="VISING_INTRESTED_IN_BECOMING_A_MEMBER">VISING INTRESTED IN BECOMING A MEMBER</option>
+    <option value="SEASONAL_VISITOR_BECOMING_ACTIVE">SEASONAL VISITOR BECOMING ACTIVE</option>
+    <option value="JUST_VISITING">JUST VISITING</option>
+
+  </select><br>
+
+
+  <label for="prayer_request">prayer_request:</label><br>
+  <input type="text" id="prayer_request" name="prayer_request"><br>
+
+
+  <label for="observations">observations:</label><br>
+  <input type="text" id="email1" name="observations"><br>
+
+
+  <label for="current_job">current_job:</label><br>
+  <input type="text" id="current_job" name="current_job"><br>
+  
+
+</div>
+<br><br>
+<hr>   <div class="multi-form">
+  <label for="name">First name:</label><br>
+  <input type="text" id="name1" name="name"><br>
+
+  <label for="email">email:</label><br>
+  <input type="text" id="email1" name="email"><br>
+
+
+  <label for="email">phone:</label><br>
+  <input type="text" id="phone" name="phone"><br>
+
+
+  <label for="email">home_address:</label><br>
+  <input type="text" id="home_address" name="home_address"><br>
+
+
+  <label for="email">Contact Via:</label><br>
+  <select name="contact_via" id="contact_via">
+    <option value="CALL">CALL</option>
+    <option value="VISIT">VISIT</option>
+    <option value="CALL_VISIT">CALL_VISIT</option>
+  </select><br>
+
+
+  <label for="email">invited_by:</label><br>
+  <input type="text" id="invited_by" name="invited_by"><br>
+
+
+  <label for="email">intrest:</label><br>
+  <select name="intrest" id="intrest">
+    <option value="INTRESTED_IN_BECOMING_A_MEMBER">INTRESTED IN BECOMING A MEMBER</option>
+    <option value="VISING_INTRESTED_IN_BECOMING_A_MEMBER">VISING INTRESTED IN BECOMING A MEMBER</option>
+    <option value="SEASONAL_VISITOR_BECOMING_ACTIVE">SEASONAL VISITOR BECOMING ACTIVE</option>
+    <option value="JUST_VISITING">JUST VISITING</option>
+
+  </select><br>
+
+
+  <label for="prayer_request">prayer_request:</label><br>
+  <input type="text" id="prayer_request" name="prayer_request"><br>
+
+
+  <label for="observations">observations:</label><br>
+  <input type="text" id="email1" name="observations"><br>
+
+
+  <label for="current_job">current_job:</label><br>
+  <input type="text" id="current_job" name="current_job"><br>
+  
+
+</div>
+<br><br>
+<hr>   <div class="multi-form">
+  <label for="name">First name:</label><br>
+  <input type="text" id="name1" name="name"><br>
+
+  <label for="email">email:</label><br>
+  <input type="text" id="email1" name="email"><br>
+
+
+  <label for="email">phone:</label><br>
+  <input type="text" id="phone" name="phone"><br>
+
+
+  <label for="email">home_address:</label><br>
+  <input type="text" id="home_address" name="home_address"><br>
+
+
+  <label for="email">Contact Via:</label><br>
+  <select name="contact_via" id="contact_via">
+    <option value="CALL">CALL</option>
+    <option value="VISIT">VISIT</option>
+    <option value="CALL_VISIT">CALL_VISIT</option>
+  </select><br>
+
+
+  <label for="email">invited_by:</label><br>
+  <input type="text" id="invited_by" name="invited_by"><br>
+
+
+  <label for="email">intrest:</label><br>
+  <select name="intrest" id="intrest">
+    <option value="INTRESTED_IN_BECOMING_A_MEMBER">INTRESTED IN BECOMING A MEMBER</option>
+    <option value="VISING_INTRESTED_IN_BECOMING_A_MEMBER">VISING INTRESTED IN BECOMING A MEMBER</option>
+    <option value="SEASONAL_VISITOR_BECOMING_ACTIVE">SEASONAL VISITOR BECOMING ACTIVE</option>
+    <option value="JUST_VISITING">JUST VISITING</option>
+
+  </select><br>
+
+
+  <label for="prayer_request">prayer_request:</label><br>
+  <input type="text" id="prayer_request" name="prayer_request"><br>
+
+
+  <label for="observations">observations:</label><br>
+  <input type="text" id="email1" name="observations"><br>
+
+
+  <label for="current_job">current_job:</label><br>
+  <input type="text" id="current_job" name="current_job"><br>
+  
+
+</div>
+<br><br>
+<hr>   <div class="multi-form">
+  <label for="name">First name:</label><br>
+  <input type="text" id="name1" name="name"><br>
+
+  <label for="email">email:</label><br>
+  <input type="text" id="email1" name="email"><br>
+
+
+  <label for="email">phone:</label><br>
+  <input type="text" id="phone" name="phone"><br>
+
+
+  <label for="email">home_address:</label><br>
+  <input type="text" id="home_address" name="home_address"><br>
+
+
+  <label for="email">Contact Via:</label><br>
+  <select name="contact_via" id="contact_via">
+    <option value="CALL">CALL</option>
+    <option value="VISIT">VISIT</option>
+    <option value="CALL_VISIT">CALL_VISIT</option>
+  </select><br>
+
+
+  <label for="email">invited_by:</label><br>
+  <input type="text" id="invited_by" name="invited_by"><br>
+
+
+  <label for="email">intrest:</label><br>
+  <select name="intrest" id="intrest">
+    <option value="INTRESTED_IN_BECOMING_A_MEMBER">INTRESTED IN BECOMING A MEMBER</option>
+    <option value="VISING_INTRESTED_IN_BECOMING_A_MEMBER">VISING INTRESTED IN BECOMING A MEMBER</option>
+    <option value="SEASONAL_VISITOR_BECOMING_ACTIVE">SEASONAL VISITOR BECOMING ACTIVE</option>
+    <option value="JUST_VISITING">JUST VISITING</option>
+
+  </select><br>
+
+
+  <label for="prayer_request">prayer_request:</label><br>
+  <input type="text" id="prayer_request" name="prayer_request"><br>
+
+
+  <label for="observations">observations:</label><br>
+  <input type="text" id="email1" name="observations"><br>
+
+
+  <label for="current_job">current_job:</label><br>
+  <input type="text" id="current_job" name="current_job"><br>
+  
+
+</div>
+<br><br>
+<hr>   <div class="multi-form">
+  <label for="name">First name:</label><br>
+  <input type="text" id="name1" name="name"><br>
+
+  <label for="email">email:</label><br>
+  <input type="text" id="email1" name="email"><br>
+
+
+  <label for="email">phone:</label><br>
+  <input type="text" id="phone" name="phone"><br>
+
+
+  <label for="email">home_address:</label><br>
+  <input type="text" id="home_address" name="home_address"><br>
+
+
+  <label for="email">Contact Via:</label><br>
+  <select name="contact_via" id="contact_via">
+    <option value="CALL">CALL</option>
+    <option value="VISIT">VISIT</option>
+    <option value="CALL_VISIT">CALL_VISIT</option>
+  </select><br>
+
+
+  <label for="email">invited_by:</label><br>
+  <input type="text" id="invited_by" name="invited_by"><br>
+
+
+  <label for="email">intrest:</label><br>
+  <select name="intrest" id="intrest">
+    <option value="INTRESTED_IN_BECOMING_A_MEMBER">INTRESTED IN BECOMING A MEMBER</option>
+    <option value="VISING_INTRESTED_IN_BECOMING_A_MEMBER">VISING INTRESTED IN BECOMING A MEMBER</option>
+    <option value="SEASONAL_VISITOR_BECOMING_ACTIVE">SEASONAL VISITOR BECOMING ACTIVE</option>
+    <option value="JUST_VISITING">JUST VISITING</option>
+
+  </select><br>
+
+
+  <label for="prayer_request">prayer_request:</label><br>
+  <input type="text" id="prayer_request" name="prayer_request"><br>
+
+
+  <label for="observations">observations:</label><br>
+  <input type="text" id="email1" name="observations"><br>
+
+
+  <label for="current_job">current_job:</label><br>
+  <input type="text" id="current_job" name="current_job"><br>
+  
+
+</div>
+<br><br>
+<hr>   <div class="multi-form">
+  <label for="name">First name:</label><br>
+  <input type="text" id="name1" name="name"><br>
+
+  <label for="email">email:</label><br>
+  <input type="text" id="email1" name="email"><br>
+
+
+  <label for="email">phone:</label><br>
+  <input type="text" id="phone" name="phone"><br>
+
+
+  <label for="email">home_address:</label><br>
+  <input type="text" id="home_address" name="home_address"><br>
+
+
+  <label for="email">Contact Via:</label><br>
+  <select name="contact_via" id="contact_via">
+    <option value="CALL">CALL</option>
+    <option value="VISIT">VISIT</option>
+    <option value="CALL_VISIT">CALL_VISIT</option>
+  </select><br>
+
+
+  <label for="email">invited_by:</label><br>
+  <input type="text" id="invited_by" name="invited_by"><br>
+
+
+  <label for="email">intrest:</label><br>
+  <select name="intrest" id="intrest">
+    <option value="INTRESTED_IN_BECOMING_A_MEMBER">INTRESTED IN BECOMING A MEMBER</option>
+    <option value="VISING_INTRESTED_IN_BECOMING_A_MEMBER">VISING INTRESTED IN BECOMING A MEMBER</option>
+    <option value="SEASONAL_VISITOR_BECOMING_ACTIVE">SEASONAL VISITOR BECOMING ACTIVE</option>
+    <option value="JUST_VISITING">JUST VISITING</option>
+
+  </select><br>
+
+
+  <label for="prayer_request">prayer_request:</label><br>
+  <input type="text" id="prayer_request" name="prayer_request"><br>
+
+
+  <label for="observations">observations:</label><br>
+  <input type="text" id="email1" name="observations"><br>
+
+
+  <label for="current_job">current_job:</label><br>
+  <input type="text" id="current_job" name="current_job"><br>
+  
+
+</div>
+<br><br>
+<hr>   <div class="multi-form">
+  <label for="name">First name:</label><br>
+  <input type="text" id="name1" name="name"><br>
+
+  <label for="email">email:</label><br>
+  <input type="text" id="email1" name="email"><br>
+
+
+  <label for="email">phone:</label><br>
+  <input type="text" id="phone" name="phone"><br>
+
+
+  <label for="email">home_address:</label><br>
+  <input type="text" id="home_address" name="home_address"><br>
+
+
+  <label for="email">Contact Via:</label><br>
+  <select name="contact_via" id="contact_via">
+    <option value="CALL">CALL</option>
+    <option value="VISIT">VISIT</option>
+    <option value="CALL_VISIT">CALL_VISIT</option>
+  </select><br>
+
+
+  <label for="email">invited_by:</label><br>
+  <input type="text" id="invited_by" name="invited_by"><br>
+
+
+  <label for="email">intrest:</label><br>
+  <select name="intrest" id="intrest">
+    <option value="INTRESTED_IN_BECOMING_A_MEMBER">INTRESTED IN BECOMING A MEMBER</option>
+    <option value="VISING_INTRESTED_IN_BECOMING_A_MEMBER">VISING INTRESTED IN BECOMING A MEMBER</option>
+    <option value="SEASONAL_VISITOR_BECOMING_ACTIVE">SEASONAL VISITOR BECOMING ACTIVE</option>
+    <option value="JUST_VISITING">JUST VISITING</option>
+
+  </select><br>
+
+
+  <label for="prayer_request">prayer_request:</label><br>
+  <input type="text" id="prayer_request" name="prayer_request"><br>
+
+
+  <label for="observations">observations:</label><br>
+  <input type="text" id="email1" name="observations"><br>
+
+
+  <label for="current_job">current_job:</label><br>
+  <input type="text" id="current_job" name="current_job"><br>
+  
+
+</div>
+<br><br>
+<hr>   <div class="multi-form">
+  <label for="name">First name:</label><br>
+  <input type="text" id="name1" name="name"><br>
+
+  <label for="email">email:</label><br>
+  <input type="text" id="email1" name="email"><br>
+
+
+  <label for="email">phone:</label><br>
+  <input type="text" id="phone" name="phone"><br>
+
+
+  <label for="email">home_address:</label><br>
+  <input type="text" id="home_address" name="home_address"><br>
+
+
+  <label for="email">Contact Via:</label><br>
+  <select name="contact_via" id="contact_via">
+    <option value="CALL">CALL</option>
+    <option value="VISIT">VISIT</option>
+    <option value="CALL_VISIT">CALL_VISIT</option>
+  </select><br>
+
+
+  <label for="email">invited_by:</label><br>
+  <input type="text" id="invited_by" name="invited_by"><br>
+
+
+  <label for="email">intrest:</label><br>
+  <select name="intrest" id="intrest">
+    <option value="INTRESTED_IN_BECOMING_A_MEMBER">INTRESTED IN BECOMING A MEMBER</option>
+    <option value="VISING_INTRESTED_IN_BECOMING_A_MEMBER">VISING INTRESTED IN BECOMING A MEMBER</option>
+    <option value="SEASONAL_VISITOR_BECOMING_ACTIVE">SEASONAL VISITOR BECOMING ACTIVE</option>
+    <option value="JUST_VISITING">JUST VISITING</option>
+
+  </select><br>
+
+
+  <label for="prayer_request">prayer_request:</label><br>
+  <input type="text" id="prayer_request" name="prayer_request"><br>
+
+
+  <label for="observations">observations:</label><br>
+  <input type="text" id="email1" name="observations"><br>
+
+
+  <label for="current_job">current_job:</label><br>
+  <input type="text" id="current_job" name="current_job"><br>
+  
+
+</div>
+<br><br>
+<hr>   <div class="multi-form">
+  <label for="name">First name:</label><br>
+  <input type="text" id="name1" name="name"><br>
+
+  <label for="email">email:</label><br>
+  <input type="text" id="email1" name="email"><br>
+
+
+  <label for="email">phone:</label><br>
+  <input type="text" id="phone" name="phone"><br>
+
+
+  <label for="email">home_address:</label><br>
+  <input type="text" id="home_address" name="home_address"><br>
+
+
+  <label for="email">Contact Via:</label><br>
+  <select name="contact_via" id="contact_via">
+    <option value="CALL">CALL</option>
+    <option value="VISIT">VISIT</option>
+    <option value="CALL_VISIT">CALL_VISIT</option>
+  </select><br>
+
+
+  <label for="email">invited_by:</label><br>
+  <input type="text" id="invited_by" name="invited_by"><br>
+
+
+  <label for="email">intrest:</label><br>
+  <select name="intrest" id="intrest">
+    <option value="INTRESTED_IN_BECOMING_A_MEMBER">INTRESTED IN BECOMING A MEMBER</option>
+    <option value="VISING_INTRESTED_IN_BECOMING_A_MEMBER">VISING INTRESTED IN BECOMING A MEMBER</option>
+    <option value="SEASONAL_VISITOR_BECOMING_ACTIVE">SEASONAL VISITOR BECOMING ACTIVE</option>
+    <option value="JUST_VISITING">JUST VISITING</option>
+
+  </select><br>
+
+
+  <label for="prayer_request">prayer_request:</label><br>
+  <input type="text" id="prayer_request" name="prayer_request"><br>
+
+
+  <label for="observations">observations:</label><br>
+  <input type="text" id="email1" name="observations"><br>
+
+
+  <label for="current_job">current_job:</label><br>
+  <input type="text" id="current_job" name="current_job"><br>
+  
+
+</div>
+<br><br>
 <hr>
-<label for="name">First name:</label><br>
-<input type="text" id="name2" name="name"><br>
-<label for="email">email:</label><br>
-<input type="text" id="email2" name="email"><br>
-<label for="body">body:</label><br>
-<input type="text" id="body2" name="body"><br><br>
+<div class="multi-form">
+  <label for="name">First name:</label><br>
+  <input type="text" id="name1" name="name"><br>
+
+  <label for="email">email:</label><br>
+  <input type="text" id="email1" name="email"><br>
+
+
+  <label for="email">phone:</label><br>
+  <input type="text" id="phone" name="phone"><br>
+
+
+  <label for="email">home_address:</label><br>
+  <input type="text" id="home_address" name="home_address"><br>
+
+
+  <label for="email">Contact Via:</label><br>
+  <select name="contact_via" id="contact_via">
+    <option value="CALL">CALL</option>
+    <option value="VISIT">VISIT</option>
+    <option value="CALL_VISIT">CALL_VISIT</option>
+  </select><br>
+
+
+  <label for="email">invited_by:</label><br>
+  <input type="text" id="invited_by" name="invited_by"><br>
+
+
+  <label for="email">intrest:</label><br>
+  <select name="intrest" id="intrest">
+    <option value="INTRESTED_IN_BECOMING_A_MEMBER">INTRESTED IN BECOMING A MEMBER</option>
+    <option value="VISING_INTRESTED_IN_BECOMING_A_MEMBER">VISING INTRESTED IN BECOMING A MEMBER</option>
+    <option value="SEASONAL_VISITOR_BECOMING_ACTIVE">SEASONAL VISITOR BECOMING ACTIVE</option>
+    <option value="JUST_VISITING">JUST VISITING</option>
+
+  </select><br>
+
+
+  <label for="prayer_request">prayer_request:</label><br>
+  <input type="text" id="prayer_request" name="prayer_request"><br>
+
+
+  <label for="observations">observations:</label><br>
+  <input type="text" id="email1" name="observations"><br>
+
+
+  <label for="current_job">current_job:</label><br>
+  <input type="text" id="current_job" name="current_job"><br>
+  
+
+</div>
+<br><br>
 <hr>
-<label for="name">First name:</label><br>
-<input type="text" id="name3" name="name"><br>
-<label for="email">email:</label><br>
-<input type="text" id="email3" name="email"><br>
-<label for="body">body:</label><br>
-<input type="text" id="body3" name="body"><br><br>
+
+<div class="multi-form">
+  <label for="name">First name:</label><br>
+  <input type="text" id="name1" name="name"><br>
+
+  <label for="email">email:</label><br>
+  <input type="text" id="email1" name="email"><br>
+
+
+  <label for="email">phone:</label><br>
+  <input type="text" id="phone" name="phone"><br>
+
+
+  <label for="email">home_address:</label><br>
+  <input type="text" id="home_address" name="home_address"><br>
+
+
+  <label for="email">Contact Via:</label><br>
+  <select name="contact_via" id="contact_via">
+    <option value="CALL">CALL</option>
+    <option value="VISIT">VISIT</option>
+    <option value="CALL_VISIT">CALL_VISIT</option>
+  </select><br>
+
+
+  <label for="email">invited_by:</label><br>
+  <input type="text" id="invited_by" name="invited_by"><br>
+
+
+  <label for="email">intrest:</label><br>
+  <select name="intrest" id="intrest">
+    <option value="INTRESTED_IN_BECOMING_A_MEMBER">INTRESTED IN BECOMING A MEMBER</option>
+    <option value="VISING_INTRESTED_IN_BECOMING_A_MEMBER">VISING INTRESTED IN BECOMING A MEMBER</option>
+    <option value="SEASONAL_VISITOR_BECOMING_ACTIVE">SEASONAL VISITOR BECOMING ACTIVE</option>
+    <option value="JUST_VISITING">JUST VISITING</option>
+
+  </select><br>
+
+
+  <label for="prayer_request">prayer_request:</label><br>
+  <input type="text" id="prayer_request" name="prayer_request"><br>
+
+
+  <label for="observations">observations:</label><br>
+  <input type="text" id="email1" name="observations"><br>
+
+
+  <label for="current_job">current_job:</label><br>
+  <input type="text" id="current_job" name="current_job"><br>
+  
+
+</div>
+<br><br>
 <hr>
-<label for="name">First name:</label><br>
-<input type="text" id="name4" name="name"><br>
-<label for="email">email:</label><br>
-<input type="text" id="email4" name="email"><br>
-<label for="body">body:</label><br>
-<input type="text" id="body4" name="body"><br><br>
+
+<div class="multi-form">
+  <label for="name">First name:</label><br>
+  <input type="text" id="name1" name="name"><br>
+
+  <label for="email">email:</label><br>
+  <input type="text" id="email1" name="email"><br>
+
+
+  <label for="email">phone:</label><br>
+  <input type="text" id="phone" name="phone"><br>
+
+
+  <label for="email">home_address:</label><br>
+  <input type="text" id="home_address" name="home_address"><br>
+
+
+  <label for="email">Contact Via:</label><br>
+  <select name="contact_via" id="contact_via">
+    <option value="CALL">CALL</option>
+    <option value="VISIT">VISIT</option>
+    <option value="CALL_VISIT">CALL_VISIT</option>
+  </select><br>
+
+
+  <label for="email">invited_by:</label><br>
+  <input type="text" id="invited_by" name="invited_by"><br>
+
+
+  <label for="email">intrest:</label><br>
+  <select name="intrest" id="intrest">
+    <option value="INTRESTED_IN_BECOMING_A_MEMBER">INTRESTED IN BECOMING A MEMBER</option>
+    <option value="VISING_INTRESTED_IN_BECOMING_A_MEMBER">VISING INTRESTED IN BECOMING A MEMBER</option>
+    <option value="SEASONAL_VISITOR_BECOMING_ACTIVE">SEASONAL VISITOR BECOMING ACTIVE</option>
+    <option value="JUST_VISITING">JUST VISITING</option>
+
+  </select><br>
+
+
+  <label for="prayer_request">prayer_request:</label><br>
+  <input type="text" id="prayer_request" name="prayer_request"><br>
+
+
+  <label for="observations">observations:</label><br>
+  <input type="text" id="email1" name="observations"><br>
+
+
+  <label for="current_job">current_job:</label><br>
+  <input type="text" id="current_job" name="current_job"><br>
+  
+
+</div>
+<br><br>
 <hr>
-<label for="name">First name:</label><br>
-<input type="text" id="name5" name="name"><br>
-<label for="email">email:</label><br>
-<input type="text" id="email5" name="email"><br>
-<label for="body">body:</label><br>
-<input type="text" id="body5" name="body"><br><br>
+
+<div class="multi-form">
+  <label for="name">First name:</label><br>
+  <input type="text" id="name1" name="name"><br>
+
+  <label for="email">email:</label><br>
+  <input type="text" id="email1" name="email"><br>
+
+
+  <label for="email">phone:</label><br>
+  <input type="text" id="phone" name="phone"><br>
+
+
+  <label for="email">home_address:</label><br>
+  <input type="text" id="home_address" name="home_address"><br>
+
+
+  <label for="email">Contact Via:</label><br>
+  <select name="contact_via" id="contact_via">
+    <option value="CALL">CALL</option>
+    <option value="VISIT">VISIT</option>
+    <option value="CALL_VISIT">CALL_VISIT</option>
+  </select><br>
+
+
+  <label for="email">invited_by:</label><br>
+  <input type="text" id="invited_by" name="invited_by"><br>
+
+
+  <label for="email">intrest:</label><br>
+  <select name="intrest" id="intrest">
+    <option value="INTRESTED_IN_BECOMING_A_MEMBER">INTRESTED IN BECOMING A MEMBER</option>
+    <option value="VISING_INTRESTED_IN_BECOMING_A_MEMBER">VISING INTRESTED IN BECOMING A MEMBER</option>
+    <option value="SEASONAL_VISITOR_BECOMING_ACTIVE">SEASONAL VISITOR BECOMING ACTIVE</option>
+    <option value="JUST_VISITING">JUST VISITING</option>
+
+  </select><br>
+
+
+  <label for="prayer_request">prayer_request:</label><br>
+  <input type="text" id="prayer_request" name="prayer_request"><br>
+
+
+  <label for="observations">observations:</label><br>
+  <input type="text" id="email1" name="observations"><br>
+
+
+  <label for="current_job">current_job:</label><br>
+  <input type="text" id="current_job" name="current_job"><br>
+  
+
+</div>
+<br><br>
 <hr>
+
+<div class="multi-form">
+  <label for="name">First name:</label><br>
+  <input type="text" id="name1" name="name"><br>
+
+  <label for="email">email:</label><br>
+  <input type="text" id="email1" name="email"><br>
+
+
+  <label for="email">phone:</label><br>
+  <input type="text" id="phone" name="phone"><br>
+
+
+  <label for="email">home_address:</label><br>
+  <input type="text" id="home_address" name="home_address"><br>
+
+
+  <label for="email">Contact Via:</label><br>
+  <select name="contact_via" id="contact_via">
+    <option value="CALL">CALL</option>
+    <option value="VISIT">VISIT</option>
+    <option value="CALL_VISIT">CALL_VISIT</option>
+  </select><br>
+
+
+  <label for="email">invited_by:</label><br>
+  <input type="text" id="invited_by" name="invited_by"><br>
+
+
+  <label for="email">intrest:</label><br>
+  <select name="intrest" id="intrest">
+    <option value="INTRESTED_IN_BECOMING_A_MEMBER">INTRESTED IN BECOMING A MEMBER</option>
+    <option value="VISING_INTRESTED_IN_BECOMING_A_MEMBER">VISING INTRESTED IN BECOMING A MEMBER</option>
+    <option value="SEASONAL_VISITOR_BECOMING_ACTIVE">SEASONAL VISITOR BECOMING ACTIVE</option>
+    <option value="JUST_VISITING">JUST VISITING</option>
+
+  </select><br>
+
+
+  <label for="prayer_request">prayer_request:</label><br>
+  <input type="text" id="prayer_request" name="prayer_request"><br>
+
+
+  <label for="observations">observations:</label><br>
+  <input type="text" id="email1" name="observations"><br>
+
+
+  <label for="current_job">current_job:</label><br>
+  <input type="text" id="current_job" name="current_job"><br>
+  
+
+</div>
+<br><br>
+<hr>
+
+<div class="multi-form">
+  <label for="name">First name:</label><br>
+  <input type="text" id="name1" name="name"><br>
+
+  <label for="email">email:</label><br>
+  <input type="text" id="email1" name="email"><br>
+
+
+  <label for="email">phone:</label><br>
+  <input type="text" id="phone" name="phone"><br>
+
+
+  <label for="email">home_address:</label><br>
+  <input type="text" id="home_address" name="home_address"><br>
+
+
+  <label for="email">Contact Via:</label><br>
+  <select name="contact_via" id="contact_via">
+    <option value="CALL">CALL</option>
+    <option value="VISIT">VISIT</option>
+    <option value="CALL_VISIT">CALL_VISIT</option>
+  </select><br>
+
+
+  <label for="email">invited_by:</label><br>
+  <input type="text" id="invited_by" name="invited_by"><br>
+
+
+  <label for="email">intrest:</label><br>
+  <select name="intrest" id="intrest">
+    <option value="INTRESTED_IN_BECOMING_A_MEMBER">INTRESTED IN BECOMING A MEMBER</option>
+    <option value="VISING_INTRESTED_IN_BECOMING_A_MEMBER">VISING INTRESTED IN BECOMING A MEMBER</option>
+    <option value="SEASONAL_VISITOR_BECOMING_ACTIVE">SEASONAL VISITOR BECOMING ACTIVE</option>
+    <option value="JUST_VISITING">JUST VISITING</option>
+
+  </select><br>
+
+
+  <label for="prayer_request">prayer_request:</label><br>
+  <input type="text" id="prayer_request" name="prayer_request"><br>
+
+
+  <label for="observations">observations:</label><br>
+  <input type="text" id="email1" name="observations"><br>
+
+
+  <label for="current_job">current_job:</label><br>
+  <input type="text" id="current_job" name="current_job"><br>
+  
+
+</div>
+<br><br>
+<hr>
+
+<div class="multi-form">
+  <label for="name">First name:</label><br>
+  <input type="text" id="name1" name="name"><br>
+
+  <label for="email">email:</label><br>
+  <input type="text" id="email1" name="email"><br>
+
+
+  <label for="email">phone:</label><br>
+  <input type="text" id="phone" name="phone"><br>
+
+
+  <label for="email">home_address:</label><br>
+  <input type="text" id="home_address" name="home_address"><br>
+
+
+  <label for="email">Contact Via:</label><br>
+  <select name="contact_via" id="contact_via">
+    <option value="CALL">CALL</option>
+    <option value="VISIT">VISIT</option>
+    <option value="CALL_VISIT">CALL_VISIT</option>
+  </select><br>
+
+
+  <label for="email">invited_by:</label><br>
+  <input type="text" id="invited_by" name="invited_by"><br>
+
+
+  <label for="email">intrest:</label><br>
+  <select name="intrest" id="intrest">
+    <option value="INTRESTED_IN_BECOMING_A_MEMBER">INTRESTED IN BECOMING A MEMBER</option>
+    <option value="VISING_INTRESTED_IN_BECOMING_A_MEMBER">VISING INTRESTED IN BECOMING A MEMBER</option>
+    <option value="SEASONAL_VISITOR_BECOMING_ACTIVE">SEASONAL VISITOR BECOMING ACTIVE</option>
+    <option value="JUST_VISITING">JUST VISITING</option>
+
+  </select><br>
+
+
+  <label for="prayer_request">prayer_request:</label><br>
+  <input type="text" id="prayer_request" name="prayer_request"><br>
+
+
+  <label for="observations">observations:</label><br>
+  <input type="text" id="email1" name="observations"><br>
+
+
+  <label for="current_job">current_job:</label><br>
+  <input type="text" id="current_job" name="current_job"><br>
+  
+
+</div>
+<br><br>
+<hr>
+
+<div class="multi-form">
+  <label for="name">First name:</label><br>
+  <input type="text" id="name1" name="name"><br>
+
+  <label for="email">email:</label><br>
+  <input type="text" id="email1" name="email"><br>
+
+
+  <label for="email">phone:</label><br>
+  <input type="text" id="phone" name="phone"><br>
+
+
+  <label for="email">home_address:</label><br>
+  <input type="text" id="home_address" name="home_address"><br>
+
+
+  <label for="email">Contact Via:</label><br>
+  <select name="contact_via" id="contact_via">
+    <option value="CALL">CALL</option>
+    <option value="VISIT">VISIT</option>
+    <option value="CALL_VISIT">CALL_VISIT</option>
+  </select><br>
+
+
+  <label for="email">invited_by:</label><br>
+  <input type="text" id="invited_by" name="invited_by"><br>
+
+
+  <label for="email">intrest:</label><br>
+  <select name="intrest" id="intrest">
+    <option value="INTRESTED_IN_BECOMING_A_MEMBER">INTRESTED IN BECOMING A MEMBER</option>
+    <option value="VISING_INTRESTED_IN_BECOMING_A_MEMBER">VISING INTRESTED IN BECOMING A MEMBER</option>
+    <option value="SEASONAL_VISITOR_BECOMING_ACTIVE">SEASONAL VISITOR BECOMING ACTIVE</option>
+    <option value="JUST_VISITING">JUST VISITING</option>
+
+  </select><br>
+
+
+  <label for="prayer_request">prayer_request:</label><br>
+  <input type="text" id="prayer_request" name="prayer_request"><br>
+
+
+  <label for="observations">observations:</label><br>
+  <input type="text" id="email1" name="observations"><br>
+
+
+  <label for="current_job">current_job:</label><br>
+  <input type="text" id="current_job" name="current_job"><br>
+  
+
+</div>
+<br><br>
+<hr>
+
+<div class="multi-form">
+  <label for="name">First name:</label><br>
+  <input type="text" id="name1" name="name"><br>
+
+  <label for="email">email:</label><br>
+  <input type="text" id="email1" name="email"><br>
+
+
+  <label for="email">phone:</label><br>
+  <input type="text" id="phone" name="phone"><br>
+
+
+  <label for="email">home_address:</label><br>
+  <input type="text" id="home_address" name="home_address"><br>
+
+
+  <label for="email">Contact Via:</label><br>
+  <select name="contact_via" id="contact_via">
+    <option value="CALL">CALL</option>
+    <option value="VISIT">VISIT</option>
+    <option value="CALL_VISIT">CALL_VISIT</option>
+  </select><br>
+
+
+  <label for="email">invited_by:</label><br>
+  <input type="text" id="invited_by" name="invited_by"><br>
+
+
+  <label for="email">intrest:</label><br>
+  <select name="intrest" id="intrest">
+    <option value="INTRESTED_IN_BECOMING_A_MEMBER">INTRESTED IN BECOMING A MEMBER</option>
+    <option value="VISING_INTRESTED_IN_BECOMING_A_MEMBER">VISING INTRESTED IN BECOMING A MEMBER</option>
+    <option value="SEASONAL_VISITOR_BECOMING_ACTIVE">SEASONAL VISITOR BECOMING ACTIVE</option>
+    <option value="JUST_VISITING">JUST VISITING</option>
+
+  </select><br>
+
+
+  <label for="prayer_request">prayer_request:</label><br>
+  <input type="text" id="prayer_request" name="prayer_request"><br>
+
+
+  <label for="observations">observations:</label><br>
+  <input type="text" id="email1" name="observations"><br>
+
+
+  <label for="current_job">current_job:</label><br>
+  <input type="text" id="current_job" name="current_job"><br>
+  
+
+</div>
+<br><br>
+<hr>
+
+<div class="multi-form">
+  <label for="name">First name:</label><br>
+  <input type="text" id="name1" name="name"><br>
+
+  <label for="email">email:</label><br>
+  <input type="text" id="email1" name="email"><br>
+
+
+  <label for="email">phone:</label><br>
+  <input type="text" id="phone" name="phone"><br>
+
+
+  <label for="email">home_address:</label><br>
+  <input type="text" id="home_address" name="home_address"><br>
+
+
+  <label for="email">Contact Via:</label><br>
+  <select name="contact_via" id="contact_via">
+    <option value="CALL">CALL</option>
+    <option value="VISIT">VISIT</option>
+    <option value="CALL_VISIT">CALL_VISIT</option>
+  </select><br>
+
+
+  <label for="email">invited_by:</label><br>
+  <input type="text" id="invited_by" name="invited_by"><br>
+
+
+  <label for="email">intrest:</label><br>
+  <select name="intrest" id="intrest">
+    <option value="INTRESTED_IN_BECOMING_A_MEMBER">INTRESTED IN BECOMING A MEMBER</option>
+    <option value="VISING_INTRESTED_IN_BECOMING_A_MEMBER">VISING INTRESTED IN BECOMING A MEMBER</option>
+    <option value="SEASONAL_VISITOR_BECOMING_ACTIVE">SEASONAL VISITOR BECOMING ACTIVE</option>
+    <option value="JUST_VISITING">JUST VISITING</option>
+
+  </select><br>
+
+
+  <label for="prayer_request">prayer_request:</label><br>
+  <input type="text" id="prayer_request" name="prayer_request"><br>
+
+
+  <label for="observations">observations:</label><br>
+  <input type="text" id="email1" name="observations"><br>
+
+
+  <label for="current_job">current_job:</label><br>
+  <input type="text" id="current_job" name="current_job"><br>
+  
+
+</div>
+<br><br>
+<hr>
+
+<div class="multi-form">
+  <label for="name">First name:</label><br>
+  <input type="text" id="name1" name="name"><br>
+
+  <label for="email">email:</label><br>
+  <input type="text" id="email1" name="email"><br>
+
+
+  <label for="email">phone:</label><br>
+  <input type="text" id="phone" name="phone"><br>
+
+
+  <label for="email">home_address:</label><br>
+  <input type="text" id="home_address" name="home_address"><br>
+
+
+  <label for="email">Contact Via:</label><br>
+  <select name="contact_via" id="contact_via">
+    <option value="CALL">CALL</option>
+    <option value="VISIT">VISIT</option>
+    <option value="CALL_VISIT">CALL_VISIT</option>
+  </select><br>
+
+
+  <label for="email">invited_by:</label><br>
+  <input type="text" id="invited_by" name="invited_by"><br>
+
+
+  <label for="email">intrest:</label><br>
+  <select name="intrest" id="intrest">
+    <option value="INTRESTED_IN_BECOMING_A_MEMBER">INTRESTED IN BECOMING A MEMBER</option>
+    <option value="VISING_INTRESTED_IN_BECOMING_A_MEMBER">VISING INTRESTED IN BECOMING A MEMBER</option>
+    <option value="SEASONAL_VISITOR_BECOMING_ACTIVE">SEASONAL VISITOR BECOMING ACTIVE</option>
+    <option value="JUST_VISITING">JUST VISITING</option>
+
+  </select><br>
+
+
+  <label for="prayer_request">prayer_request:</label><br>
+  <input type="text" id="prayer_request" name="prayer_request"><br>
+
+
+  <label for="observations">observations:</label><br>
+  <input type="text" id="email1" name="observations"><br>
+
+
+  <label for="current_job">current_job:</label><br>
+  <input type="text" id="current_job" name="current_job"><br>
+  
+
+</div>
+<br><br>
+<hr>
+<div><input type="number" hidden="true" value="" id="hidden_form_number" name="hidden_form_number"></div>
+
 
   <input type="submit" value="Submit">
 </form> 
 
 <p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384 JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script>
+  var hiddenfm=document.getElementById("hidden_form_number")
+    const currentIngredientForms = document.getElementsByClassName("multi-form")
+    var i =currentIngredientForms.length
+    console.log(i)
+    hiddenfm.setAttribute('value', i);
+  
+</script>
 </body>
 </html>
