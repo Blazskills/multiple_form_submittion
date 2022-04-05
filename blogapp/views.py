@@ -1,13 +1,14 @@
 
 # from django.http import HttpResponse
 from django.shortcuts import redirect, render
-
 from blogapp.utils import create_activity_stream, generate_digits, update_activity_stream
 from .models import ActivityStream, ActivityStreamTarget, Memebers, NewComer
 from .forms import UserRegistrationForm, LoginForm, MemebersForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from blogapp.documents import ActivitystreamDocument, NewcomerDocument
 # from django.contrib import messages
 
 
@@ -174,13 +175,124 @@ def member(request):
     context = {"form": form}
     return render(request, 'multForm/member.html', context)
 
-
+from django.utils.functional import LazyObject
+from elasticsearch_dsl.query import Q
+from django.contrib.contenttypes.models import ContentType
+class SearchResults(LazyObject):
+    def __init__(self, search_object):
+        self._wrapped = search_object
+    def __len__(self):
+            return self._wrapped.count()
+    def __getitem__(self, index):
+        search_results = self._wrapped[index]
+        if isinstance(index, slice):
+            search_results = list(search_results)
+        return search_results
+    
+    
 @login_required(login_url='signin')
 def home(request):
-    activitystreams = ActivityStream.objects.all()
-
-    context = {"activitystreams": activitystreams}
+    # activitystreams = ActivityStream.objects.all()
+    activitystreams=ActivitystreamDocument.search().sort('-created')
+    username  = request.GET.get('username')
+    email  = request.GET.get('email')
+    start_date = request.GET.get('start_date')
+    end_date = request.GET.get('end_date')
+    ctype = request.GET.get('ctype')
+    print(ctype)
+    search = ActivitystreamDocument.search().sort('-created')
+    ctypes = ContentType.objects.all()
+    
+    if username:
+        # activitystreams = activitystreams.filter(user__username__icontains=username)
+        activitystreams=search.filter("match_phrase_prefix",user__username=username)
+        for i in activitystreams:
+            print(i)
+    if email:
+        activitystreams=activitystreams.filter("match_phrase_prefix", user__email=email)
+    if start_date:
+        activitystreams=activitystreams.filter("range", created={"gte": start_date})
+    if end_date:
+        activitystreams=activitystreams.filter("range", created={"lte": end_date})
+    if ctype:
+        activitystreams=activitystreams.filter("match", target=ctype)
+            
+    search_results = SearchResults(activitystreams)
+    page = request.GET.get('page', 1)
+    paginator = Paginator(search_results, 10)
+    
+    try:
+        activitystreams = paginator.page(page)
+    except PageNotAnInteger:
+        activitystreams = paginator.page(1)
+    except EmptyPage:
+        activitystreams = paginator.page(paginator.num_pages) 
+    context = {"activitystreams": activitystreams, "ctypes": ctypes}
     return render(request, 'multForm/home.html', context)
+    #  if username:
+    #         activitystreams = activitystreams.filter(user__username__icontains=username)
+    # context = {"activitystreams": activitystreams}
+    # return render(request, 'multForm/home.html', context)
+
+
+
+@login_required(login_url='signin')
+def member_details(request):
+    members = Memebers.objects.all()
+    name  = request.GET.get('name')
+    email  = request.GET.get('email')
+    if name:
+        members = members.filter(name__icontains=name)
+    if email:
+        members = members.filter(email__icontains=email)
+    page = request.GET.get('page', 1)
+    paginator = Paginator(members, 200)  # 100 items per page
+    try:
+        members = paginator.page(page)
+    except PageNotAnInteger:
+        members = paginator.page(1)
+    except EmptyPage:
+        members = paginator.page(paginator.num_pages)
+    return render(request, 'multForm/member_details.html', {'members': members})
+    #  if username:
+    #         activitystreams = activitystreams.filter(user__username__icontains=username)
+    # context = {"activitystreams": activitystreams}
+    # return render(request, 'multForm/home.html', context)
+
+
+
+@login_required(login_url='signin')
+def newcomer_details(request):
+    mmembers = NewComer.objects.all()
+    members=None
+    name  = request.GET.get('name')
+    email  = request.GET.get('email')
+    if name:
+        # members = members.filter(name__icontains=name)
+        # members=NewcomerDocument.search().query("match", name=name).to_queryset()
+        members=NewcomerDocument.search().query("match_phrase_prefix", name=name)
+        for i in members:
+            print(i)
+        # print(members)
+        
+    if email:
+        # members = members.filter(email__icontains=email)
+        members=NewcomerDocument.search().query("match", email=email)
+  
+        
+    # page = request.GET.get('page', 1)
+    # paginator = Paginator(members, 200)  # 100 items per page
+    # try:
+    #     members = paginator.page(page)
+    # except PageNotAnInteger:
+    #     members = paginator.page(1)
+    # except EmptyPage:
+    #     members = paginator.page(paginator.num_pages)
+    return render(request, 'multForm/newcomer_details.html', {'members': members})
+    #  if username:
+    #         activitystreams = activitystreams.filter(user__username__icontains=username)
+    # context = {"activitystreams": activitystreams}
+    # return render(request, 'multForm/home.html', context)
 
 
 @login_required(login_url='signin')
@@ -192,6 +304,8 @@ def activity_stream(request, ref_id):
     print(activitystreamsets)
     context = {"activitystreamsets": activitystreamsets}
     return render(request, 'multForm/activity_stream_detail.html', context)
+
+
 
 @login_required(login_url='signin')
 def signout(request):

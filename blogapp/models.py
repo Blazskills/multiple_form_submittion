@@ -75,6 +75,10 @@ class Memebers(BaseModel):
 
     def __str__(self):
         return "%s (%s)" % (self.name, self.email)
+    
+    
+    class Meta:
+            ordering = ('-created',)
 
 class ActivityStream(BaseModel):
     user = models.ForeignKey(User, on_delete=models.CASCADE,  related_name='actions', db_index=True, null=True, blank=True)

@@ -24,6 +24,8 @@
     <p> <a href="{% url 'main_index' %}">Register New comer</a> </p>
 
     <p> <a href="{% url 'member' %}">Member</a> </p>
+    <p> <a href="{% url 'member-list' %}">Member List</a> </p>
+    <p> <a href="{% url 'newcomer-list' %}">Newcomer List</a> </p>
     <h1>Home Page</h1>
 
     <p style="color:green">ACTIVITY STREAM</p>
@@ -52,7 +54,8 @@
             <tr>
             <td>{{forloop.counter}} </td>
             <td> <a href="{{ activitystreamset.activitystream }}">
-                {{ activitystreamset.activity_stream.user.username }}
+                {{ activitystreamset.activity_stream.user.first_name }}
+                {{ activitystreamset.activity_stream.user.last_name }}
               </a></td>
             <td> {{activitystreamset.target_ct}} </td>
             <td> {{ activitystreamset.target_id}} </td>
@@ -67,7 +70,7 @@
         </table>
 
 
-            
+             
 </div>
 
 

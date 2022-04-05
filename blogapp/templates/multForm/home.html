@@ -24,18 +24,85 @@
     <p> <a href="{% url 'main_index' %}">Register New comer</a> </p>
 
     <p> <a href="{% url 'member' %}">Member</a> </p>
+    <p> <a href="{% url 'member-list' %}">Member List</a> </p>
+    <p> <a href="{% url 'newcomer-list' %}">Newcomer List</a> </p>
     <h1>Home Page</h1>
 
     <p style="color:green">ACTIVITY STREAM</p>
 
 
-   
+   <form method="GET" autocomplete="off" style="width: 20%; margin-left:70px;"> 
+    <label class="kt-form-label">Username</label>
+    <div class="kt-form__control">
+        <input type="text" class="form-control" name="username"
+                {% if request.GET.username %}
+                    value={{ request.GET.username }}
+                {% endif %} id="id_username">
+    </div>
+
+    <label class="kt-form-label">email</label>
+    <div class="kt-form__control">
+        <input type="text" class="form-control" name="email"
+                {% if request.GET.email %}
+                    value={{ request.GET.email }}
+                {% endif %} id="id_email">
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-3">
+        <div class="kt-form__group">
+            <label class="col-form-label">Start Date</label>
+            <div class="kt-form__control">
+                <input style="width: auto" type="date" class="form-control" id="id_from" name="start_date"
+                        {% if request.GET.start_date %}
+                       value="{{ request.GET.start_date }}"
+                        {% endif %} id="id_start_date">
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-3">
+        <div class="kt-form__group">
+            <label class="col-form-label">End Date</label>
+            <div class="kt-form__control">
+                <input style="width:auto" type="date" class="form-control" id="id_from"
+                       name="end_date" {% if request.GET.end_date %}
+                       value={{ request.GET.end_date }}
+                {% endif %} id="id_end_date" >
+
+            </div>
+        </div>
+    </div>
+    <div class="kt-form__group">
+        <div class="kt-form__label">
+            <label class="select-title">Content Type</label>
+        </div>
+        <div class="kt-form__control">
+            <select class="form-control bootstrap-select"
+                    data-style="bootstrap-select2" id="id_ctype" name="ctype"
+                    data-live-search="True">
+                <option value="">-Please Select-</option>
+                
+                {% for ctype in ctypes %}
+                <option value="{{ctype}}">{{ctype.name}}</option>
+                {% endfor %}
+                    
+               
+
+            </select>
+        </div>
+    </div>
+    <button type="submit"
+                                                    class="btn btn-md kt-font-bold-lighter kt-bg-red-darken-4 kt-white-text kt-form__control">
+                                                <i class="flaticon2-search-1"></i>Search
+                                            </button>
+   </form>
 
 
 <div style="margin:0 30px">
     <table id = "myTable" class = "table table-bordered" style = "width: 100%;">
         <thead>
         <tr>
+        <th>S/N</th>
         <th> User </th>
         <th> Verb </th>
         <th> Ref Id </th>
@@ -49,7 +116,8 @@
         {% for activitystream in activitystreams %}
         <tbody>
             <tr>
-            <td> <a href=" {{activitystream.ref_id}}"> {{activitystream.user}}</a> </td>
+            <td>&nbsp;&nbsp;&nbsp;{{ forloop.counter }}</td>
+            <td> <a href=" {{activitystream.ref_id}}"> <p>Dom</p>{{activitystream.user.username}}</a> </td>
             <td> {{ activitystream.verb}} </td>
             <td> {{ activitystream.ref_id }} </td>
             <td> {{ activitystream.response_status}} </td>
@@ -65,7 +133,36 @@
         
         </table>
 
+ <!-- Activity Stream Pagination begins here -->
+ {% if activitystreams %} 
+ {% if activitystreams.has_other_pages %}
+ <nav aria-label="Page navigation example">
+ <ul class="pagination justify-content-center">
+     {% if activitystreams.has_previous %}
+     <li class="page-item">
+         <a class="page-link" href="?page={{ activitystreams.previous_page_number }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{key}}={{value}}{% endif %}{% endfor %}" tabindex="-1">Previous</a>
+     </li>
+     {% else %}
+     <li class="page-item disabled">
+         <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+     </li>
+     {% endif %}
+     <li class="page-item"><a class="page-link">Page {{ activitystreams.number }} of {{ activitystreams.paginator.num_pages }}</a></li>
+     {% if activitystreams.has_next %}
+     <li class="page-item">
+         <a class="page-link" href="?page={{ activitystreams.next_page_number }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{key}}={{value}}{% endif %}{% endfor %}">Next</a>
+     </li>
+     {% else %}
+     <li class="page-item disabled">
+         <a class="page-link" href="#" aria-disabled="true">Next</a>
+     </li>
+     {% endif %}
+ </ul>
+ </nav>
+ {% endif %}
+{% endif %}
 
+<!--Activity Stream End of pagination -->
             
 </div>
 
@@ -96,3 +193,5 @@
     </script>
 </body>
 </html>
+
+

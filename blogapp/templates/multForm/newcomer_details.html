@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<link rel = "stylesheet" href = "https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
+
+    <title>MEMBER LIST PAGE</title>
+  
+</head>
+<body>
+    
+    <p> <a href="{% url 'home' %}">Home</a> </p>
+    <p> <a href="{% url 'register' %}">Register</a> </p>
+    
+    {% if request.user.is_authenticated %}
+    <p> <a href="{% url 'signout' %}">Log out</a> </p>
+    {% else %}
+    <p> <a href="{% url 'signin' %}">Login</a> </p>
+    {% endif %}
+    
+    <p> <a href="{% url 'main_index' %}">Register New comer</a> </p>
+
+    <p> <a href="{% url 'member' %}">Member</a> </p>
+    <p> <a href="{% url 'member-list' %}">Member List</a> </p>
+    <p> <a href="{% url 'newcomer-list' %}">Newcomer List</a> </p>
+    <h1>MEMBER LIST PAGE</h1>
+
+    <p style="color:green">ACTIVITY STREAM</p>
+
+
+   <form method="GET" autocomplete="off" style="width: 20%; margin-left:70px;"> 
+    <label class="kt-form-label">name</label>
+    <div class="kt-form__control">
+        <input type="text" class="form-control" name="name"
+                {% if request.GET.name %}
+                    value={{ request.GET.name }}
+                {% endif %} id="id_name">
+    </div>
+
+    <label class="kt-form-label">email</label>
+    <div class="kt-form__control">
+        <input type="text" class="form-control" name="email"
+                {% if request.GET.email %}
+                    value={{ request.GET.email }}
+                {% endif %} id="id_email">
+    </div>
+    <button style="background:blue; color:white; margin:10px" type="submit" class="btn btn-md kt-font-bold-lighter kt-bg-red-darken-4 kt-white-text kt-form__control">
+    <i class="flaticon2-search-1"></i>Search</button>
+   </form>
+
+
+<div style="margin:0 30px">
+    <table id = "myTable" class = "table table-bordered" style = "width: 100%;">
+        <thead>
+        <tr>
+        <th>S/N</th>
+        <th> Name </th>
+        <th> Email </th>
+        <th> Phone </th>
+        <th>Created</th>
+        <th>Created at</th>
+
+        </tr>
+        </thead>
+        {% for member in members %}
+        <tbody>
+            <tr>
+            <td>&nbsp;&nbsp;&nbsp;{{ forloop.counter }}</td>
+            <td> {{ member.name}} </td>
+            <td> {{ member.email }} </td>
+            <td> {{ member.phone}} </td>
+            <td> {{ member.created|timesince }} </td>
+            <td> {{ member.created}} </td>
+
+
+            
+            </tr>
+            </tbody>
+        {% endfor %}
+       
+        
+        </table>
+
+
+              <!-- Activity Stream Pagination begins here -->
+              {% comment %} {% if members %} 
+              {% if members.has_other_pages %}
+              <nav aria-label="Page navigation example">
+              <ul class="pagination justify-content-center">
+                  {% if members.has_previous %}
+                  <li class="page-item">
+                      <a class="page-link" href="?page={{ members.previous_page_number }}" tabindex="-1">Previous</a>
+                  </li>
+                  {% else %}
+                  <li class="page-item disabled">
+                      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                  </li>
+                  {% endif %}
+                  <li class="page-item"><a class="page-link">Page {{ members.number }} of {{ members.paginator.num_pages }}</a></li>
+                  {% if members.has_next %}
+                  <li class="page-item">
+                      <a class="page-link" href="?page={{ members.next_page_number }}">Next</a>
+                  </li>
+                  {% else %}
+                  <li class="page-item disabled">
+                      <a class="page-link" href="#" aria-disabled="true">Next</a>
+                  </li>
+                  {% endif %}
+              </ul>
+              </nav>
+              {% endif %}
+      {% endif %} {% endcomment %}
+           
+  <!--Activity Stream End of pagination -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js</script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src = "https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src = "https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+
+
+    <script>
+    $(document).ready(function() {
+    $('#myTable').DataTable();
+    } );
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} 
+
+from django_seed import Seed
+
+seeder = Seed.seeder()
+
+from blogapp.models import Members
+seeder.add_entity(Memebers, 10000)
+seeder.add_entity(Player, 10)
+
+inserted_pks = seeder.execute() {% endcomment %}

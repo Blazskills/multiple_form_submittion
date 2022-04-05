@@ -17,13 +17,16 @@ def create_activity_stream(user, verb, ref_id, response_status='Attempt', target
     action.save()
     if isinstance(target, list):
         for t in target:
-            ActivityStreamTarget.objects.create(
+            actstrmlst=ActivityStreamTarget.objects.create(
                 target=t, activity_stream=action
             )
+            actstrmlst.save()
         return
-    ActivityStreamTarget.objects.create(
+    actstrm=ActivityStreamTarget.objects.create(
                 target=target, activity_stream=action
             )
+    actstrm.save()
+    
 
 
 def update_activity_stream(ref_id,  verb, response_status, user='', target=None,):
